@@ -1,0 +1,53 @@
+/* Blueprint theme: OOP classes are "blueprints", so the UI looks like a drafting table. */
+:root{--ink:#10243d;--blue:#1d4e89;--paper:#f4f7fb;--line:#c9d6e6;--chalk:#ffc83d;--ok:#1f9d63;--bad:#d6393f;--card:#fff;
+--head:'Bricolage Grotesque',system-ui,sans-serif;--body:Inter,system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.6 var(--body);color:var(--ink);background:var(--paper);
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:32px 32px;background-attachment:fixed}
+h1,h2,h3{font-family:var(--head);line-height:1.2;margin:.2em 0 .4em}
+code,pre{font-family:var(--mono)}
+button{font:inherit;cursor:pointer;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:.4rem .9rem;border-radius:6px}
+button:hover{background:#e8eef7}
+button.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+button.accent{background:var(--chalk)}
+button:disabled{opacity:.5;cursor:wait}
+:focus-visible{outline:3px solid var(--chalk);outline-offset:2px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:.7rem 1.2rem;background:var(--ink);color:#fff}
+.brand b{font:700 1.4rem var(--head)}.brand span{margin-left:.8rem;color:var(--chalk)}
+.stats{display:flex;align-items:center;gap:.8rem;font-size:.9rem}
+.xpbar{width:120px;height:10px;background:#34506f;border-radius:5px;overflow:hidden}
+.xpbar i{display:block;height:100%;width:0;background:var(--chalk);transition:width .4s}
+.pill{padding:.1rem .6rem;border-radius:99px;font-size:.8rem;background:#fff;color:var(--ink)}
+.pill.warn{background:var(--chalk)}.pill.ok{background:#bdebd3}
+.layout{display:grid;grid-template-columns:190px 1fr;gap:1.2rem;max-width:1100px;margin:1.2rem auto;padding:0 1rem}
+#nav{display:flex;flex-direction:column;gap:.4rem;position:sticky;top:1rem;align-self:start}
+#nav button{text-align:left}
+#nav button.on{background:var(--ink);color:#fff}
+main{min-width:0}
+.view{display:none}.view.on{display:block}
+.card{background:var(--card);border:2px solid var(--ink);border-radius:8px;padding:1rem 1.2rem;margin-bottom:1rem}
+.card pre,#output{background:#212121;color:#e6e6e6;padding:.8rem;border-radius:6px;overflow-x:auto;margin:.5rem 0;white-space:pre-wrap}
+.tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.8rem}
+.tabs button.on{background:var(--chalk)}
+.lvl{font-size:.8rem;padding:.1rem .6rem;border-radius:99px;border:1.5px solid var(--ink)}
+.bar{display:flex;gap:.5rem;flex-wrap:wrap;margin:.6rem 0}
+#workspace{display:none;background:var(--card);border:2px solid var(--ink);border-radius:8px;padding:1rem 1.2rem}
+#workspace.show{display:block}
+.CodeMirror{height:300px;border-radius:6px;font:14px/1.5 var(--mono)}
+.stdin{margin:.5rem 0}.stdin textarea{width:100%;font-family:var(--mono)}
+#output.err{color:#ff8a8a}
+.hint{background:#fff7dc;border-left:5px solid var(--chalk);padding:.4rem .8rem;margin:.4rem 0}
+.t{padding:.4rem .8rem;margin:.3rem 0;border-radius:6px;font-size:.92rem}
+.t.ok{background:#d9f3e6}.t.no{background:#fde0e1}
+.win{background:#d9f3e6;border:2px solid var(--ok);border-radius:8px;padding:.8rem 1rem;margin-top:.8rem}
+.badges{display:flex;gap:.6rem;flex-wrap:wrap}
+.badge{border:2px dashed var(--line);border-radius:8px;padding:.5rem .8rem;opacity:.55}
+.badge.got{border:2px solid var(--ink);background:var(--chalk);opacity:1}
+.demo{display:grid;gap:.6rem}
+.pets{display:flex;gap:.6rem;flex-wrap:wrap}
+.pet{border:2px solid var(--ink);border-radius:8px;padding:.5rem .8rem;min-width:150px;background:#eef4ff}
+.pet .e{height:8px;background:#d3dceb;border-radius:4px;margin:.3rem 0}.pet .e i{display:block;height:100%;background:var(--ok);border-radius:4px}
+.opt{display:block;width:100%;text-align:left;margin:.25rem 0}.opt.sel{background:var(--chalk)}
+footer{text-align:center;font-size:.85rem;padding:1rem;color:#4b6382}
+@media(max-width:800px){.layout{grid-template-columns:1fr}#nav{flex-direction:row;overflow-x:auto;position:static}#nav button{white-space:nowrap}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
