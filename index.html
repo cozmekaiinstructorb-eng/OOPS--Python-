@@ -2,45 +2,56 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Python Lab — Learn, Code, Build</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python Lab: Learn, Code, Build</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>🐍 Python Lab <span>Learn, Code, Build</span></h1>
-  <div id="stats"></div>
+<header class="top">
+  <div class="brand"><b>Python Lab</b><span id="topicName"></span></div>
+  <div class="stats">
+    <span id="loadState" class="pill warn">Loading Python…</span>
+    <span id="levelTxt"></span>
+    <div class="xpbar" title="XP"><i id="xpFill"></i></div>
+    <span id="xpTxt"></span>
+  </div>
 </header>
-<div id="loading">⏳ Loading Python… the first load takes a few seconds.</div>
-<nav id="nav"></nav>
-<main>
-  <section id="stage"></section>
-  <section id="workspace" class="card">
-    <h2 id="ws-title">Free editor</h2>
-    <div id="editor"></div>
-    <label for="stdin">Input — one line for each <code>input()</code> call</label>
-    <textarea id="stdin" rows="2" placeholder="Asha"></textarea>
-    <div class="row">
-      <button id="run" class="primary">▶ Run</button>
-      <button id="check" class="ok" hidden>✔ Check my solution</button>
-      <button id="reset">Reset code</button>
-      <button id="clear">Clear output</button>
-    </div>
-    <pre id="output" aria-live="polite">Output appears here.</pre>
-    <div id="results"></div>
-  </section>
-</main>
-<footer>💾 Progress is saved in this browser only (localStorage). It does not sync across devices.</footer>
+<div class="layout">
+  <nav id="nav" aria-label="Lesson stages"></nav>
+  <main>
+    <section class="view" id="v-learn"></section>
+    <section class="view" id="v-explore"></section>
+    <section class="view" id="v-practice"><div id="practiceTabs" class="tabs"></div><div id="ws-practice"></div></section>
+    <section class="view" id="v-build"><div id="ws-build"></div></section>
+    <section class="view" id="v-code"><div id="ws-code"></div></section>
+    <section class="view" id="v-progress"></section>
 
+    <section id="workspace">
+      <div id="taskInfo"></div>
+      <div class="bar">
+        <button id="runBtn" class="primary">Run</button>
+        <button id="checkBtn" class="accent">Check answer</button>
+        <button id="resetBtn">Reset code</button>
+        <button id="clearBtn">Clear output</button>
+      </div>
+      <textarea id="editor"></textarea>
+      <details class="stdin"><summary>Input for <code>input()</code> (one line per call)</summary><textarea id="stdin" rows="3" placeholder="Type each answer on its own line"></textarea></details>
+      <pre id="output" aria-live="polite">Output appears here.</pre>
+      <div id="results"></div>
+    </section>
+  </main>
+</div>
+<footer>Progress is saved in this browser only. It does not sync across devices.</footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
-<script src="data/lessons.js"></script>
-<script src="js/progress.js"></script>
-<script src="js/python-runner.js"></script>
-<script src="js/challenge-engine.js"></script>
-<script src="js/lesson-engine.js"></script>
-<script src="js/app.js"></script>
+<script src="lessons.js"></script>
+<script src="progress.js"></script>
+<script src="python-runner.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
+
